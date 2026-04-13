@@ -41,8 +41,10 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero-container">
-          <div className="hero-image-wrapper">
-            <img src="/logo.png" alt="Chatterify" className="hero-portrait" />
+          <div className="hero-image-wrapper" style={{ display: 'flex', gap: '4px', alignItems: 'center', width: 'auto', background: 'transparent', overflow: 'visible', right: '0' }}>
+            <img src="/logo.png" alt="Chatterify" style={{ width: '100%', maxWidth: '280px', height: 'auto', objectFit: 'contain', marginRight: '-50px' }} />
+            <span style={{ fontSize: '28px', color: 'var(--text-secondary)', fontWeight: '400', fontFamily: 'serif', transform: 'translateY(10px)' }}>&amp;</span>
+            <img src="/partner-logo.png" alt="Partner OS" style={{ width: '100%', maxWidth: '220px', height: 'auto', objectFit: 'contain' }} />
           </div>
           <h1 className="hero-title">Intelligent<br />Digital<br />Solutions</h1>
           <div className="hero-subtitle">
@@ -90,9 +92,17 @@ export default function Home() {
             <Link to="/services" className="btn btn-solid mt-6">View Packages</Link>
           </div>
           <div className="services-grid">
-            <Link to="/web-development" className="service-card dark-card highlight-card">
+            <Link to="/web-development" className="service-card dark-card highlight-card" style={{ gridColumn: 'span 2' }}>
               <h3>Full-Stack<br />Web Development</h3>
-              <p>Custom, responsive and scalable websites — landing pages, business sites, e-commerce and web applications.</p>
+              <p>Custom, responsive and scalable websites — landing pages, business sites, e-commerce and web applications. Built with modern frameworks and optimized for speed, security and SEO from day one.</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>React</span>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>Node.js</span>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>Next.js</span>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>MongoDB</span>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>AWS</span>
+                <span style={{ padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '500', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)' }}>PostgreSQL</span>
+              </div>
               <i className="fa-solid fa-arrow-up-right-from-square icon-arrow"></i>
             </Link>
             <Link to="/ai-chatbots" className="service-card light-card">
@@ -105,11 +115,7 @@ export default function Home() {
               <p>Voice automation systems that handle calls, assist customers and integrate seamlessly with your business workflows.</p>
               <i className="fa-solid fa-arrow-right icon-arrow"></i>
             </Link>
-            <Link to="/video-editing" className="service-card light-card">
-              <h3>Video Editing<br />&amp; Production</h3>
-              <p>Professional video editing for marketing, social media, YouTube content and promotional campaigns.</p>
-              <i className="fa-solid fa-arrow-right icon-arrow"></i>
-            </Link>
+
           </div>
         </div>
       </section>
@@ -192,16 +198,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="portfolio-card has-overlay">
-              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Video Production" />
-              <div className="overlay">
-                <div className="overlay-tags"><span>Video</span><span>Media</span></div>
-                <div className="overlay-bottom">
-                  <h4>Professional Video Editing</h4>
-                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-              </div>
-            </div>
+
             <div className="portfolio-card has-overlay">
               <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=600&q=80" alt="AI Automation" />
               <div className="overlay">

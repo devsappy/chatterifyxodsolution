@@ -60,44 +60,43 @@ export default function About() {
           <h2 className="section-title">Technologies &amp;<br />capabilities we cover</h2>
           <div className="skills-grid">
             <div className="skill-category">
-              <h3>Development</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">Full-Stack Web Dev</span>
-                <span className="skill-tag">Landing Pages</span>
-                <span className="skill-tag">E-Commerce</span>
-                <span className="skill-tag">Custom Web Apps</span>
-                <span className="skill-tag">API Development</span>
-                <span className="skill-tag">Database Solutions</span>
+              <div className="skill-icon"><i className="fa-solid fa-code"></i></div>
+              <div>
+                <h3>Development</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">Full-Stack Web Dev</span>
+                  <span className="skill-tag">Landing Pages</span>
+                  <span className="skill-tag">E-Commerce</span>
+                  <span className="skill-tag">Custom Web Apps</span>
+                  <span className="skill-tag">API Development</span>
+                  <span className="skill-tag">Database Solutions</span>
+                </div>
               </div>
             </div>
             <div className="skill-category">
-              <h3>AI &amp; Automation</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">AI Chatbots</span>
-                <span className="skill-tag">Voice Agents</span>
-                <span className="skill-tag">Agentic AI</span>
-                <span className="skill-tag">Workflow Automation</span>
-                <span className="skill-tag">Business Process AI</span>
+              <div className="skill-icon"><i className="fa-solid fa-robot"></i></div>
+              <div>
+                <h3>AI &amp; Automation</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">AI Chatbots</span>
+                  <span className="skill-tag">Voice Agents</span>
+                  <span className="skill-tag">Agentic AI</span>
+                  <span className="skill-tag">Workflow Automation</span>
+                  <span className="skill-tag">Business Process AI</span>
+                </div>
               </div>
             </div>
             <div className="skill-category">
-              <h3>Creative &amp; Media</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">Video Editing</span>
-                <span className="skill-tag">Short Reels</span>
-                <span className="skill-tag">YouTube Content</span>
-                <span className="skill-tag">Promotional Videos</span>
-                <span className="skill-tag">Social Media</span>
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>Infrastructure</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">Website Hosting</span>
-                <span className="skill-tag">SSL &amp; CDN</span>
-                <span className="skill-tag">Server Monitoring</span>
-                <span className="skill-tag">Maintenance</span>
-                <span className="skill-tag">24/7 Support</span>
+              <div className="skill-icon"><i className="fa-solid fa-server"></i></div>
+              <div>
+                <h3>Infrastructure</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">Website Hosting</span>
+                  <span className="skill-tag">SSL &amp; CDN</span>
+                  <span className="skill-tag">Server Monitoring</span>
+                  <span className="skill-tag">Maintenance</span>
+                  <span className="skill-tag">24/7 Support</span>
+                </div>
               </div>
             </div>
           </div>

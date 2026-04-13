@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 import WebDevelopment from './pages/WebDevelopment';
 import AIChatbots from './pages/AIChatbots';
 import VoiceAgents from './pages/VoiceAgents';
-import VideoEditing from './pages/VideoEditing';
+
 import './style.css'
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/ai-chatbots" element={<AIChatbots />} />
         <Route path="/voice-agents" element={<VoiceAgents />} />
-        <Route path="/video-editing" element={<VideoEditing />} />
+
       </Routes>
       <Footer />
     </Router>

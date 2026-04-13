@@ -69,7 +69,6 @@ export default function Contact() {
                   <option value="web-dev">Web Development</option>
                   <option value="chatbot">AI Chatbot Integration</option>
                   <option value="voice-agent">AI Voice Agents</option>
-                  <option value="video">Video Editing</option>
                   <option value="automation">Business Automation</option>
                   <option value="hosting">Website Hosting</option>
                   <option value="starter">Starter Package</option>

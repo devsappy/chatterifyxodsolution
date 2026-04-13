@@ -16,7 +16,7 @@ export default function Services() {
             <button className="filter-tab" data-filter="web">Web Dev</button>
             <button className="filter-tab" data-filter="ai">AI &amp; Chatbots</button>
             <button className="filter-tab" data-filter="voice">Voice AI</button>
-            <button className="filter-tab" data-filter="video">Video</button>
+
             <button className="filter-tab" data-filter="packages">Packages</button>
           </div>
         </div>
@@ -130,26 +130,7 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="template-card" data-category="video">
-              <div className="template-card-image">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Video Editing" />
-                <div className="template-overlay">
-                  <a href="/contact" className="btn btn-sm btn-white">Get Quote</a>
-                </div>
-              </div>
-              <div className="template-card-info">
-                <div className="template-tags">
-                  <span className="template-tag">Video</span>
-                  <span className="template-tag">Creative</span>
-                </div>
-                <h3>Professional Video Editing</h3>
-                <p>High-quality video editing for marketing, YouTube, social media reels and promotional content.</p>
-                <div className="template-meta">
-                  <span><i className="fa-solid fa-indian-rupee-sign"></i> 300 - 20,000</span>
-                  <span><i className="fa-solid fa-clock"></i> Varies</span>
-                </div>
-              </div>
-            </div>
+
 
             <div className="template-card" data-category="web">
               <div className="template-card-image">

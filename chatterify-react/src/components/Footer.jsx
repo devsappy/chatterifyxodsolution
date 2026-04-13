@@ -22,7 +22,7 @@ export default function Footer() {
               </svg>
               <span>Chatterify</span>
             </div>
-            <p className="footer-desc">Chatterify is a modern technology startup helping businesses grow through intelligent digital solutions — web development, AI chatbots, voice agents, video editing and automation.</p>
+            <p className="footer-desc">Chatterify is a modern technology startup helping businesses grow through intelligent digital solutions — web development, AI chatbots, voice agents and automation.</p>
             <div className="social-links">
               <a href="#"><i className="fa-brands fa-instagram"></i></a>
               <a href="#"><i className="fa-brands fa-twitter"></i></a>
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
           <div className="footer-col">
             <h4>Services</h4>
-            <p>Web Development<br />AI Chatbot Integration<br />AI Voice Agents<br />Video Editing</p>
+            <p>Web Development<br />AI Chatbot Integration<br />AI Voice Agents</p>
           </div>
           <div className="footer-col">
             <h4>Email</h4>

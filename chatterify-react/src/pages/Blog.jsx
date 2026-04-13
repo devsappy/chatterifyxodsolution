@@ -76,20 +76,8 @@ export default function Blog() {
               </div>
             </article>
 
-            <article className="blog-card">
-              <div className="blog-card-image">
-                <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=600&q=80" alt="Video Marketing" />
-              </div>
-              <div className="blog-card-content">
-                <div className="blog-tag">Video Marketing</div>
-                <h3>How Professional Video Editing Boosts Your Brand</h3>
-                <p>Why high-quality video content is essential for social media growth and how to make it affordable.</p>
-                <div className="blog-meta">
-                  <span className="blog-date"><i className="fa-regular fa-calendar"></i> Jan 18, 2026</span>
-                  <span className="blog-read"><i className="fa-regular fa-clock"></i> 9 min read</span>
-                </div>
-              </div>
-            </article>
+
+
 
             <article className="blog-card">
               <div className="blog-card-image">
