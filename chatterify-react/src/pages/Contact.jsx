@@ -69,7 +69,6 @@ export default function Contact() {
                   <option value="web-dev">Web Development</option>
                   <option value="chatbot">AI Chatbot Integration</option>
                   <option value="voice-agent">AI Voice Agents</option>
-                  <option value="video">Video Editing</option>
                   <option value="automation">Business Automation</option>
                   <option value="hosting">Website Hosting</option>
                   <option value="starter">Starter Package</option>
@@ -90,7 +89,6 @@ export default function Contact() {
 
       <section className="contact-social">
         <div className="container">
-          <div className="badge">Connect With Us</div>
           <h2 className="section-title">Find us online</h2>
           <div className="social-cards">
             <a href="#" className="social-card">
