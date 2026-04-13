@@ -13,22 +13,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="client-marquee">
-        <div className="marquee-track">
-          <div className="client-pill"><i className="fa-solid fa-code"></i> Web Dev</div>
-          <div className="client-pill"><i className="fa-solid fa-robot"></i> AI Chatbots</div>
-          <div className="client-pill"><i className="fa-solid fa-microphone"></i> Voice AI</div>
-          <div className="client-pill"><i className="fa-solid fa-video"></i> Video Editing</div>
-          <div className="client-pill"><i className="fa-solid fa-server"></i> Backend</div>
-          <div className="client-pill"><i className="fa-solid fa-gears"></i> Automation</div>
-          <div className="client-pill"><i className="fa-solid fa-code"></i> Web Dev</div>
-          <div className="client-pill"><i className="fa-solid fa-robot"></i> AI Chatbots</div>
-          <div className="client-pill"><i className="fa-solid fa-microphone"></i> Voice AI</div>
-          <div className="client-pill"><i className="fa-solid fa-video"></i> Video Editing</div>
-          <div className="client-pill"><i className="fa-solid fa-server"></i> Backend</div>
-          <div className="client-pill"><i className="fa-solid fa-gears"></i> Automation</div>
-        </div>
-      </section>
+
 
       <section className="about">
         <div className="container">
@@ -107,7 +92,7 @@ export default function Home() {
               </div>
               <div className="exp-year">Step 1</div>
             </div>
-            <div className="experience-item active">
+            <div className="experience-item">
               <div className="exp-info">
                 <h3>Design &amp; Development</h3>
                 <p>Our skilled team builds your solution using modern tech stacks, keeping you in the loop at every milestone.</p>
@@ -140,25 +125,66 @@ export default function Home() {
             <p className="section-desc">From chatbots to hosting, we've got every angle covered.</p>
           </div>
           <div className="portfolio-grid">
-            <div className="portfolio-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Development" /></div>
-            <div className="portfolio-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Chatbot Integration" /></div>
-            <div className="portfolio-card"><img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=80" alt="Backend Systems" /></div>
-            <div className="portfolio-card"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Video Production" /></div>
             <div className="portfolio-card has-overlay">
-              <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=600&q=80" alt="AI Automation" />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Development" />
               <div className="overlay">
-                <div className="overlay-tags">
-                  <span>AI</span>
-                  <span>Automation</span>
-                  <span>Voice</span>
-                </div>
+                <div className="overlay-tags"><span>Web</span><span>React</span></div>
                 <div className="overlay-bottom">
-                  <h4>Chatterify — AI Chatbot &amp;<br />Voice Automation Suite</h4>
+                  <h4>Full-Stack Web Development</h4>
                   <i className="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
               </div>
             </div>
-            <div className="portfolio-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Business Automation" /></div>
+            <div className="portfolio-card has-overlay">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Chatbot Integration" />
+              <div className="overlay">
+                <div className="overlay-tags"><span>AI</span><span>Chatbots</span></div>
+                <div className="overlay-bottom">
+                  <h4>Custom AI Chatbots</h4>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-card has-overlay">
+              <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=80" alt="Backend Systems" />
+              <div className="overlay">
+                <div className="overlay-tags"><span>Cloud</span><span>Backend</span></div>
+                <div className="overlay-bottom">
+                  <h4>Scalable Backend Systems</h4>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-card has-overlay">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Video Production" />
+              <div className="overlay">
+                <div className="overlay-tags"><span>Video</span><span>Media</span></div>
+                <div className="overlay-bottom">
+                  <h4>Professional Video Editing</h4>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-card has-overlay">
+              <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=600&q=80" alt="AI Automation" />
+              <div className="overlay">
+                <div className="overlay-tags"><span>AI</span><span>Voice</span></div>
+                <div className="overlay-bottom">
+                  <h4>Voice Automation Suite</h4>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-card has-overlay">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Business Automation" />
+              <div className="overlay">
+                <div className="overlay-tags"><span>Auto</span><span>Process</span></div>
+                <div className="overlay-bottom">
+                  <h4>Business Process Automation</h4>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
