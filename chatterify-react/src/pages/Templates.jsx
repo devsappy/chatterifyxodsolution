@@ -61,11 +61,11 @@ const projects = [
   },
   {
     id: 7,
-    title: 'CollabTrack',
-    description: 'A task and progress management platform designed for creative teams to organize and track projects.',
-    tags: ['SaaS', 'Project Management', 'Dashboard'],
-    category: 'SaaS',
-    url: 'https://collab-tracker.vercel.app',
+    title: 'Buzzball',
+    description: 'Vibrant e-commerce site for a ready-to-drink cocktail brand with product showcase and ordering.',
+    tags: ['E-Commerce', 'Beverage', 'Brand'],
+    category: 'E-Commerce',
+    url: 'https://buzzball-demo.vercel.app',
   },
   {
     id: 8,
@@ -82,6 +82,14 @@ const projects = [
     tags: ['B2B', 'Consulting', 'Corporate'],
     category: 'B2B',
     url: 'https://ve-v2.vercel.app',
+  },
+  {
+    id: 10,
+    title: 'CollabTrack',
+    description: 'A task and progress management platform designed for creative teams to organize and track projects.',
+    tags: ['SaaS', 'Project Management', 'Dashboard'],
+    category: 'SaaS',
+    url: 'https://collab-tracker.vercel.app',
   },
 ];
 
