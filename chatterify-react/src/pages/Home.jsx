@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import blogPosts from '../data/blogPosts';
 import usePageTitle from '../hooks/usePageTitle';
 import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
@@ -31,6 +31,51 @@ const testimonials = [
 export default function Home() {
   usePageTitle(null, { path: '/' });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef(null);
+  const videoCardRef = useRef(null);
+
+  // Only mount the <video> element (and fetch metadata) when the card
+  // scrolls near the viewport, so the 18 MB file never blocks initial page load.
+  useEffect(() => {
+    if (!videoCardRef.current || videoReady) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVideoReady(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(videoCardRef.current);
+    return () => observer.disconnect();
+  }, [videoReady]);
+
+  const toggleVideo = () => {
+    // First click mounts the <video> if it hasn't been created yet
+    if (!videoReady) {
+      setVideoReady(true);
+      // Defer play until React renders the element
+      setTimeout(() => {
+        const v = videoRef.current;
+        if (v) { v.play(); setVideoPlaying(true); }
+      }, 0);
+      return;
+    }
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setVideoPlaying(true);
+    } else {
+      video.pause();
+      setVideoPlaying(false);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,11 +110,45 @@ export default function Home() {
             <p className="section-desc">Wir verbinden innovatives Webdesign mit leistungsstarker<br />Technologie für Ihren digitalen Erfolg.</p>
           </div>
           <div className="about-content">
-            <div className="about-image-card">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Team working on digital solutions" />
-              <div className="play-btn">
-                <i className="fa-solid fa-play"></i>
-              </div>
+            <div
+              ref={videoCardRef}
+              className={`about-image-card ${videoPlaying ? 'is-playing' : ''}`}
+              onClick={toggleVideo}
+            >
+              {videoReady ? (
+                <video
+                  ref={videoRef}
+                  className="about-video"
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  poster="/about-video-poster.jpg"
+                  onPlay={() => setVideoPlaying(true)}
+                  onPause={() => setVideoPlaying(false)}
+                  onEnded={() => setVideoPlaying(false)}
+                  aria-label="Chatterify team at work"
+                >
+                  <source src="/about-video.webm" type="video/webm" />
+                  <source src="/about-video.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src="/about-video-poster.jpg"
+                  alt="Chatterify team at work"
+                  className="about-video"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <button
+                type="button"
+                className="play-btn"
+                onClick={(e) => { e.stopPropagation(); toggleVideo(); }}
+                aria-label={videoPlaying ? 'Pause video' : 'Play video'}
+              >
+                <i className={`fa-solid ${videoPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+              </button>
             </div>
             <div className="about-stats">
               <div className="stat-item">
