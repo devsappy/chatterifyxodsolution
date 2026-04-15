@@ -838,6 +838,14 @@ p {
     justify-content: center;
 }
 
+.icon-circle i {
+    transition: transform 0.3s ease;
+}
+
+.btn-hire:hover .icon-circle i {
+    transform: rotate(-45deg);
+}
+
 .footer-logos {
     display: flex;
     align-items: center;

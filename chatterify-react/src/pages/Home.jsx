@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import blogPosts from '../data/blogPosts';
 import usePageTitle from '../hooks/usePageTitle';
+import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
 
 const testimonials = [
   {
@@ -128,35 +129,65 @@ export default function Home() {
             <h2 className="section-title">How we deliver<br />results for your business</h2>
             <p className="section-desc">Our step-by-step process ensures transparent<br />communication, fast turnaround and<br />high-quality outcomes.</p>
           </div>
-          <div className="experience-list">
-            <div className="experience-item">
-              <div className="exp-info">
-                <h3>Discovery &amp; Strategy</h3>
-                <p>We understand your goals, audience and requirements to craft a tailored strategy before writing a single line of code.</p>
-              </div>
-              <div className="exp-year">Step 1</div>
-            </div>
-            <div className="experience-item">
-              <div className="exp-info">
-                <h3>Design &amp; Development</h3>
-                <p>Our skilled team builds your solution using modern tech stacks, keeping you in the loop at every milestone.</p>
-              </div>
-              <div className="exp-year">Step 2</div>
-            </div>
-            <div className="experience-item">
-              <div className="exp-info">
-                <h3>Testing &amp; Integration</h3>
-                <p>Rigorous testing and seamless integration of AI chatbots, voice agents and backend systems into your workflow.</p>
-              </div>
-              <div className="exp-year">Step 3</div>
-            </div>
-            <div className="experience-item border-none">
-              <div className="exp-info">
-                <h3>Launch &amp; Ongoing Support</h3>
-                <p>We deploy your project and provide maintenance, monitoring and priority support to keep everything running smoothly.</p>
-              </div>
-              <div className="exp-year">Step 4</div>
-            </div>
+          <div className="experience-stack">
+            <ScrollStack useWindowScroll itemDistance={16} itemStackDistance={20} stackPosition="22%" baseScale={0.88}>
+              <ScrollStackItem itemClassName="experience-stack-card">
+                <div className="exp-icon"><i className="fa-solid fa-compass-drafting"></i></div>
+                <div className="exp-info">
+                  <span className="exp-eyebrow">Step 1 · Woche 1</span>
+                  <h3>Discovery &amp; Strategy</h3>
+                  <p>Wir analysieren Ihre Zielgruppe, Wettbewerber und Geschäftsziele, um eine maßgeschneiderte Webdesign- und SEO-Strategie für den DACH-Markt zu entwickeln — bevor eine einzige Zeile Code geschrieben wird.</p>
+                  <ul className="exp-features">
+                    <li><i className="fa-solid fa-check"></i> Stakeholder-Workshop &amp; Brand Audit</li>
+                    <li><i className="fa-solid fa-check"></i> Keyword- &amp; Wettbewerbsanalyse (DE/AT)</li>
+                    <li><i className="fa-solid fa-check"></i> Sitemap, User Flows &amp; Tech-Stack-Auswahl</li>
+                  </ul>
+                </div>
+                <div className="exp-year">01</div>
+              </ScrollStackItem>
+              <ScrollStackItem itemClassName="experience-stack-card">
+                <div className="exp-icon"><i className="fa-solid fa-code"></i></div>
+                <div className="exp-info">
+                  <span className="exp-eyebrow">Step 2 · Woche 2–5</span>
+                  <h3>Design &amp; Development</h3>
+                  <p>Pixelgenaues UI-Design in Figma, gefolgt von performantem Custom-Code in React, Next.js und Tailwind. Sie erhalten wöchentliche Previews und können in jeder Phase Feedback geben.</p>
+                  <ul className="exp-features">
+                    <li><i className="fa-solid fa-check"></i> Responsive UI &amp; Design-System</li>
+                    <li><i className="fa-solid fa-check"></i> Core Web Vitals optimiert (90+ Lighthouse)</li>
+                    <li><i className="fa-solid fa-check"></i> CMS-Integration &amp; SEO-On-Page</li>
+                  </ul>
+                </div>
+                <div className="exp-year">02</div>
+              </ScrollStackItem>
+              <ScrollStackItem itemClassName="experience-stack-card">
+                <div className="exp-icon"><i className="fa-solid fa-vial-circle-check"></i></div>
+                <div className="exp-info">
+                  <span className="exp-eyebrow">Step 3 · Woche 6</span>
+                  <h3>Testing &amp; Integration</h3>
+                  <p>QA über Geräte und Browser, Anbindung von KI-Chatbots, Voice Agents, CRM und Analytics. DSGVO-konforme Cookie-Banner und vollständige Datenschutz-Compliance inklusive.</p>
+                  <ul className="exp-features">
+                    <li><i className="fa-solid fa-check"></i> Cross-Browser- &amp; Mobile-Tests</li>
+                    <li><i className="fa-solid fa-check"></i> Chatbot, Voice &amp; CRM-Integration</li>
+                    <li><i className="fa-solid fa-check"></i> DSGVO &amp; Accessibility (WCAG)</li>
+                  </ul>
+                </div>
+                <div className="exp-year">03</div>
+              </ScrollStackItem>
+              <ScrollStackItem itemClassName="experience-stack-card">
+                <div className="exp-icon"><i className="fa-solid fa-rocket"></i></div>
+                <div className="exp-info">
+                  <span className="exp-eyebrow">Step 4 · Go-Live &amp; Beyond</span>
+                  <h3>Launch &amp; Ongoing Support</h3>
+                  <p>Deployment auf Vercel oder Ihrem bevorzugten Hosting, kontinuierliches Monitoring und priorisierter Support. Wir wachsen mit Ihrem Geschäft und liefern messbare Performance-Updates.</p>
+                  <ul className="exp-features">
+                    <li><i className="fa-solid fa-check"></i> Zero-Downtime Deployment</li>
+                    <li><i className="fa-solid fa-check"></i> 24/7 Monitoring &amp; Uptime-Reporting</li>
+                    <li><i className="fa-solid fa-check"></i> Monatliche Performance- &amp; SEO-Updates</li>
+                  </ul>
+                </div>
+                <div className="exp-year">04</div>
+              </ScrollStackItem>
+            </ScrollStack>
           </div>
         </div>
       </section>

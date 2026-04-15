@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ErrorBoundary from './components/ErrorBoundary'
+import ClickSpark from './components/ClickSpark'
 import Home from './pages/Home'
 import About from './pages/About'
 import Blog from './pages/Blog'
@@ -37,6 +38,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400} />
       </ErrorBoundary>
     </Router>
   )
