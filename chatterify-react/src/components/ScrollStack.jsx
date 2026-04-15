@@ -27,6 +27,9 @@ const ScrollStack = ({
   const cardsRef = useRef([]);
   const cardOffsetsRef = useRef([]);
   const endOffsetRef = useRef(0);
+  const targetsRef = useRef([]);
+  const currentsRef = useRef([]);
+  const rafActiveRef = useRef(false);
   const lastTransformsRef = useRef(new Map());
   const isUpdatingRef = useRef(false);
 
@@ -114,19 +117,10 @@ const ScrollStack = ({
         }
       }
 
-      let translateY = 0;
       const isPinned = scrollTop >= pinStart && scrollTop <= pinEnd;
 
-      if (isPinned) {
-        translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i;
-      } else if (scrollTop > pinEnd) {
-        translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
-      }
-
-      const transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotate(${rotation}deg)`;
-      const filter = blur > 0 ? `blur(${blur}px)` : '';
-      card.style.transform = transform;
-      card.style.filter = filter;
+      card.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+      card.style.filter = blur > 0 ? `blur(${blur}px)` : '';
 
       if (i === cardsRef.current.length - 1) {
         const isInView = scrollTop >= pinStart && scrollTop <= pinEnd;
@@ -156,6 +150,48 @@ const ScrollStack = ({
     getElementOffset
   ]);
 
+  const startRaf = useCallback(() => {
+    if (rafActiveRef.current) return;
+    rafActiveRef.current = true;
+    const lerp = 0.18;
+    const tick = () => {
+      const cards = cardsRef.current;
+      const targets = targetsRef.current;
+      const currents = currentsRef.current;
+      let stillMoving = false;
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const t = targets[i];
+        if (!card || !t) continue;
+        let c = currents[i];
+        if (!c) {
+          c = { translateY: 0, scale: 1, rotation: 0, blur: 0 };
+          currents[i] = c;
+        }
+        c.translateY += (t.translateY - c.translateY) * lerp;
+        c.scale += (t.scale - c.scale) * lerp;
+        c.rotation += (t.rotation - c.rotation) * lerp;
+        c.blur += (t.blur - c.blur) * lerp;
+
+        if (
+          Math.abs(t.translateY - c.translateY) > 0.05 ||
+          Math.abs(t.scale - c.scale) > 0.0005 ||
+          Math.abs(t.rotation - c.rotation) > 0.05 ||
+          Math.abs(t.blur - c.blur) > 0.05
+        ) stillMoving = true;
+
+        card.style.transform = `translate3d(0, ${c.translateY}px, 0) scale(${c.scale}) rotate(${c.rotation}deg)`;
+        card.style.filter = c.blur > 0.1 ? `blur(${c.blur}px)` : '';
+      }
+      if (stillMoving) {
+        animationFrameRef.current = requestAnimationFrame(tick);
+      } else {
+        rafActiveRef.current = false;
+      }
+    };
+    animationFrameRef.current = requestAnimationFrame(tick);
+  }, []);
+
   const measureOffsets = useCallback(() => {
     const cards = cardsRef.current;
     const prevTransforms = cards.map(c => c.style.transform);
@@ -179,8 +215,14 @@ const ScrollStack = ({
     cards.forEach((c, i) => { c.style.transform = prevTransforms[i] || ''; });
   }, [useWindowScroll]);
 
+  const tickingRef = useRef(false);
   const handleScroll = useCallback(() => {
-    updateCardTransforms();
+    if (tickingRef.current) return;
+    tickingRef.current = true;
+    requestAnimationFrame(() => {
+      updateCardTransforms();
+      tickingRef.current = false;
+    });
   }, [updateCardTransforms]);
 
   const handleResize = useCallback(() => {
@@ -193,9 +235,14 @@ const ScrollStack = ({
     if (!target) return;
     target.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('load', handleResize, { passive: true });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => handleResize());
+    }
     return () => {
       target.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', handleResize);
     };
   }, [handleScroll, handleResize, useWindowScroll]);
 
@@ -212,17 +259,20 @@ const ScrollStack = ({
     cardsRef.current = cards;
     const transformsCache = lastTransformsRef.current;
 
+    const containerHeight = useWindowScroll ? window.innerHeight : (scrollerRef.current?.clientHeight || 0);
+    const stickyBase = typeof stackPosition === 'string' && stackPosition.includes('%')
+      ? (parseFloat(stackPosition) / 100) * containerHeight
+      : parseFloat(stackPosition);
+
     cards.forEach((card, i) => {
       if (i < cards.length - 1) {
         card.style.marginBottom = `${itemDistance}px`;
       }
+      card.style.position = 'sticky';
+      card.style.top = `${stickyBase + itemStackDistance * i}px`;
       card.style.willChange = 'transform, filter';
       card.style.transformOrigin = 'top center';
       card.style.backfaceVisibility = 'hidden';
-      card.style.transform = 'translateZ(0)';
-      card.style.webkitTransform = 'translateZ(0)';
-      card.style.perspective = '1000px';
-      card.style.webkitPerspective = '1000px';
     });
 
     measureOffsets();
