@@ -32,7 +32,7 @@ const projects = [
     title: 'Aset AI',
     description: 'Landingpage für eine KI-gestützte Plattform mit intelligenten Automatisierungsfunktionen und Dienstleistungen.',
     tags: ['Landingpage', 'KI', 'SaaS'],
-    category: 'Landing Page',
+    category: 'Landingpage',
     url: 'https://aset-six.vercel.app',
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     title: 'Landingpage — Starter',
     description: 'Aufgeräumte, conversion-fokussierte Einzelseite — gebaut für Geschwindigkeit und maximale Wirkung.',
     tags: ['Landingpage', 'Starter', 'Responsive'],
-    category: 'Landing Page',
+    category: 'Landingpage',
     url: 'https://landingpage1-peach.vercel.app',
   },
   {
